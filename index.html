@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>هدية خاصة ❤️</title>
+    <style>
+        body {
+            background-color: #ffe6eb;
+            font-family: Tahoma, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            max-width: 450px;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            width: 80%;
+            text-align: center;
+        }
+        button {
+            background-color: #ff4d79;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #ff3360;
+        }
+        .hidden {
+            display: none;
+        }
+        .message {
+            font-size: 18px;
+            color: #d6336c;
+            line-height: 1.8;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .photos-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .photos-container img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ff4d79;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شاشة إدخال الرمز السري -->
+    <div class="card" id="lock-screen">
+        <h2>أدخل الرمز السري ❤️</h2>
+        <p>تلميح: الرمز هو 2211</p>
+        <input type="password" id="passcode" placeholder="أدخل الرمز هنا">
+        <br>
+        <button onclick="checkCode()">فتح الهدية</button>
+        <p id="error-msg" style="color: red; display: none;">الرمز غير صحيح، حاول مرة أخرى!</p>
+    </div>
+
+    <!-- محتوى الهدية (يظهر بعد إدخال الرمز الصحيح) -->
+    <div class="card hidden" id="content-screen">
+        <h2>🎉 مبروك، فتحت الهدية!</h2>
+        
+        <!-- قسم الصور (قم بتغيير photo1.jpg و photo2.jpg بأسماء صورك الحقيقية) -->
+        <div class="photos-container">
+            <img src="photo1.jpg" alt="صورة 1">
+            <img src="photo2.jpg" alt="صورة 2">
+        </div>
+
+        <p class="message">بحبك ي وزه ي احلي حاجه حصلتي ف حياتي ربنا يخليكي ليا ي ام العيال</p>
+    </div>
+
+    <script>
+        function checkCode() {
+            var code = document.getElementById('passcode').value;
+            // الرمز السري الجديد هو 2211
+            if (code === "2211") {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('content-screen').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
